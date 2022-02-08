@@ -16,6 +16,6 @@ jobs:
           ls ${{ github.workspace }}
       - name: Run dbt test
         run: |
-          pip install dbt
+          pip install dbt-core dbt-bigquery
           dbt test
       - run: echo "🍏 This job's status is ${{ job.status }}."
