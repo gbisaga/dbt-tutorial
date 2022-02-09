@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "cdk": "^2.12.0"
+  }
+}

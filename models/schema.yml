@@ -10,13 +10,13 @@ models:
           - unique
           - not_null
       - name: first_order_date
-        description: NULL when a customer has not yet placed an order.
+        description: This model cleans up customer data
 
   - name: stg_customers
-    description: This model cleans up customer data
+    description: "{{ doc('stg_customers') }}"
     columns:
       - name: customer_id
-        description: Primary key
+        description: "{{ doc('stg_customers_first_order_date') }}"
         tests:
           - unique
           - not_null

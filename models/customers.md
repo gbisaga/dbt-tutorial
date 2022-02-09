@@ -6,6 +6,8 @@ One record per customer.
 
 ** bold **
 
+<b>This is bold!</b>
+
 |description|value|
 |----|
 |happiness|state of being happy|
