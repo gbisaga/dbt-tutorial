@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: customers
+    description: "{{ doc('customers') }}"
+    columns:
+      - name: customer_id
+        description: primary key of model
+        tests:
+          - unique
+          - not_null
+      - name: first_order_date
+        description: This model cleans up customer data
+
+  - name: stg_customers
+    description: "{{ doc('stg_customers') }}"
+    columns:
+      - name: customer_id
+        description: "{{ doc('stg_customers_first_order_date') }}"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_orders
+    description: This model cleans up order data
+    columns:
+      - name: order_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+      - name: customer_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
